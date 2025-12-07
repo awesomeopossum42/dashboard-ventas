@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard de productos</title>
+
+  <!-- Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Nuestro script -->
+  <script src="script.js" defer></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    #btn-actualizar {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #google-chart-container,
+    #d3-chart-container {
+      width: 100%;
+      min-height: 320px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    #d3-chart-container {
+      position: relative;
+    }
+
+    .tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: white;
+      border: 1px solid #999;
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="top-bar">
+      <h1>Dashboard de ventas de productos</h1>
+      <button id="btn-actualizar">Actualizar datos</button>
+    </div>
+
+    <!-- Gráfico básico (Google Charts) -->
+    <div id="google-chart-container"></div>
+
+    <!-- Gráfico avanzado (D3.js) -->
+    <div id="d3-chart-container"></div>
+  </div>
+</body>
+</html>
